@@ -1,0 +1,92 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #000;
+  color: #00ff9c;
+  font-family: "Courier New", monospace;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#matrix {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: 380px;
+  padding: 30px;
+  background: rgba(0, 10, 5, 0.85);
+  border: 1px solid #00ff9c;
+  border-radius: 6px;
+  box-shadow: 0 0 25px rgba(0, 255, 156, 0.4);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px #00ff9c;
+}
+.logo span { color: #ff2e63; }
+
+.terminal {
+  font-size: 12px;
+  color: #7dffc8;
+  min-height: 60px;
+  margin-bottom: 15px;
+  white-space: pre-line;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #000;
+  border: 1px solid #0a6;
+  color: #00ff9c;
+  font-family: inherit;
+  outline: none;
+}
+input:focus {
+  border-color: #00ff9c;
+  box-shadow: 0 0 10px #00ff9c;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #00ff9c;
+  color: #00ff9c;
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #00ff9c;
+  color: #000;
+  box-shadow: 0 0 20px #00ff9c;
+}
+
+.switch {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #7dffc8;
+}
+.switch:hover { color: #ff2e63; }
+
+.msg { text-align: center; margin-top: 10px; font-size: 13px; color: #ff2e63; }
+.hidden { display: none; }

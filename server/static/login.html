@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cyber_Watch</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <div class="card">
+    <div class="logo">CYBER_<span>WATCH</span></div>
+    <div class="terminal" id="terminal"></div>
+
+    <input type="text" id="username" placeholder="> username">
+    <input type="email" id="email" placeholder="> email" class="hidden">
+    <input type="password" id="password" placeholder="> password">
+
+    <button id="submitBtn">ACCESS SYSTEM</button>
+    <p class="switch" id="switchMode">[ create new account ]</p>
+    <p class="msg" id="msg"></p>
+  </div>
+
+<script src="/static/matrix.js"></script>
+<script src="/static/auth.js"></script>
+</body>
+</html>
