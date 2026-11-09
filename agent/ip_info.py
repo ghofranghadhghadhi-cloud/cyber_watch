@@ -103,4 +103,6 @@ def show_public_identity():
 
 
 # Run the program (this line must stay at the very left, with no spaces)
-show_public_identity()
+if __name__ == "__main__":
+    show_public_identity()
+    
