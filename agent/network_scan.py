@@ -5,6 +5,8 @@ from rich import box
 from rich.console import Console
 from rich.table import Table
 
+from helpers import is_random_mac, get_network_range
+
 console = Console()
 
 
@@ -33,7 +35,7 @@ def find_interface(ip):
 # Try to get the name of a device from its IP
 def get_hostname(ip):
     try:
-        return socket.gethostbyname_ex(ip)[0] if False else socket.gethostbyaddr(ip)[0]
+        return socket.gethostbyaddr(ip)[0]
     except Exception:
         return "-"
 
@@ -57,9 +59,7 @@ def get_vendor_online(mac):
 # Find the manufacturer of a device from its MAC address
 # Phones often use a private (random) MAC, so no vendor can be found
 def get_vendor(mac):
-    first_byte = int(mac.split(":")[0], 16)
-    # If this bit is 1, the MAC address is locally administered (random)
-    if first_byte & 2:
+    if is_random_mac(mac):
         return "Random MAC"
 
     # First try: offline database inside Scapy
@@ -117,7 +117,7 @@ def main():
     console.rule("[bold green]CYBER_WATCH - Network scan")
     my_ip = get_local_ip()
     iface = find_interface(my_ip)
-    network = my_ip.rsplit(".", 1)[0] + ".0/24"
+    network = get_network_range(my_ip)
 
     console.print("[green]>[/green] your IP     : " + my_ip)
     console.print("[green]>[/green] network card: " + str(iface.name))

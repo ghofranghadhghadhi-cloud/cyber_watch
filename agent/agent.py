@@ -5,6 +5,7 @@ from rich.console import Console
 
 from ip_info import get_public_ipv4
 from network_scan import get_local_ip, find_interface, scan_network, show_devices
+from helpers import get_network_range
 
 console = Console()
 
@@ -57,7 +58,7 @@ def main():
     # Step 2: local network scan
     my_ip = get_local_ip()
     iface = find_interface(my_ip)
-    network = my_ip.rsplit(".", 1)[0] + ".0/24"
+    network = get_network_range(my_ip)
     console.print("[green]>[/green] scanning " + network + " ...")
     devices = scan_network(network, iface)
     console.print("")
