@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #05080a;
+  --panel: rgba(0, 14, 10, 0.9);
+  --green: #00ff9c;
+  --cyan: #00e5ff;
+  --red: #ff2e63;
+  --text: #7dffc8;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Courier New", monospace;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--green);
+  box-shadow: 0 0 20px rgba(0, 255, 156, 0.25);
+}
+.brand {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: var(--green);
+  text-shadow: 0 0 10px var(--green);
+}
+.brand span {
+  color: var(--red);
+}
+.userbox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  padding: 20px 24px;
+}
+
+.card {
+  grid-column: span 3;
+  background: var(--panel);
+  border: 1px solid #0a6;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 0 14px rgba(0, 255, 156, 0.15);
+}
+.card .label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--cyan);
+}
+.card .value {
+  font-size: 26px;
+  margin-top: 8px;
+  color: var(--green);
+  text-shadow: 0 0 8px var(--green);
+  word-break: break-all;
+}
+.card .value.small {
+  font-size: 18px;
+}
+.card .value.online {
+  color: var(--green);
+}
+.card .value.offline {
+  color: var(--red);
+  text-shadow: 0 0 8px var(--red);
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-family: inherit;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: var(--green);
+  color: #000;
+  box-shadow: 0 0 20px var(--green);
+}
+.btn.small {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .card {
+    grid-column: span 6;
+  }
+}
