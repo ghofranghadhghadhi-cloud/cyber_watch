@@ -4,14 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cyber_Watch - Dashboard</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/dashboard.css">
 </head>
 <body>
-  <div class="card">
-    <div class="logo">CYBER_<span>WATCH</span></div>
-    <div class="terminal" id="terminal">> verifying token...</div>
-    <button id="logoutBtn">LOGOUT</button>
-  </div>
+  <header class="topbar">
+    <div class="brand">CYBER_<span>WATCH</span></div>
+    <div class="user">
+      <span id="userInfo">...</span>
+      <button id="logoutBtn">LOGOUT</button>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card stat">
+      <div class="label">DEVICES</div>
+      <div class="value" id="statDevices">0</div>
+    </section>
+    <section class="card stat">
+      <div class="label">RANDOM MAC</div>
+      <div class="value red" id="statRandom">0</div>
+    </section>
+    <section class="card stat">
+      <div class="label">LAST SCAN</div>
+      <div class="value small" id="statLast">-</div>
+    </section>
+    <section class="card stat">
+      <div class="label">PUBLIC IP</div>
+      <div class="value small" id="statIp">-</div>
+    </section>
+
+    <section class="card wide">
+      <h2>&gt; DEVICES ON YOUR NETWORK</h2>
+      <div class="tablebox">
+        <table>
+          <thead>
+            <tr><th>IP</th><th>MAC</th><th>VENDOR</th><th>HOST</th><th>LAST SEEN</th></tr>
+          </thead>
+          <tbody id="devicesBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card half">
+      <h2>&gt; DEVICE TYPES</h2>
+      <div class="chartbox"><canvas id="donut"></canvas></div>
+    </section>
+    <section class="card half">
+      <h2>&gt; DEVICES PER SCAN</h2>
+      <div class="chartbox"><canvas id="line"></canvas></div>
+    </section>
+
+    <section class="card wide">
+      <h2>&gt; AGENT</h2>
+      <p class="hint">Create a token, then run the agent on your laptop (cmd as administrator).</p>
+      <button id="tokenBtn">GENERATE MY AGENT TOKEN</button>
+      <div id="tokenBox" class="hidden">
+        <p class="hint">Shown only once. Creating a new token cancels the old one.</p>
+        <pre id="tokenValue"></pre>
+        <pre id="cmdExample"></pre>
+        <button id="copyBtn">COPY TOKEN</button>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>&gt; SYSTEM LOG</h2>
+      <pre id="log"></pre>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="/static/dashboard.js"></script>
 </body>
 </html>
