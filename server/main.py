@@ -176,7 +176,18 @@ def list_devices(authorization: str = Header(default=None)):
     ).fetchall()
     conn.close()
     return [dict(row) for row in rows]
-
+# History of the last scans of the user (for the dashboard chart)
+@app.get("/api/scans")
+def list_scans(authorization: str = Header(default=None)):
+    user = get_user_from_jwt(authorization)
+    conn = get_connection()
+    rows = conn.execute(
+        "SELECT public_ip, device_count, created_at "
+        "FROM scans WHERE user_id = ? ORDER BY id DESC LIMIT 20",
+        (user["id"],),
+    ).fetchall()
+    conn.close()
+    return [dict(row) for row in rows] 
 
 @app.get("/api/health")
 def health():
