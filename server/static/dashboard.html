@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,14 +21,17 @@
       <div class="label">DEVICES</div>
       <div class="value" id="statDevices">0</div>
     </section>
+
     <section class="card stat">
       <div class="label">RANDOM MAC</div>
       <div class="value red" id="statRandom">0</div>
     </section>
+
     <section class="card stat">
       <div class="label">LAST SCAN</div>
       <div class="value small" id="statLast">-</div>
     </section>
+
     <section class="card stat">
       <div class="label">PUBLIC IP</div>
       <div class="value small" id="statIp">-</div>
@@ -38,7 +42,13 @@
       <div class="tablebox">
         <table>
           <thead>
-            <tr><th>IP</th><th>MAC</th><th>VENDOR</th><th>HOST</th><th>LAST SEEN</th></tr>
+            <tr>
+              <th>IP</th>
+              <th>MAC</th>
+              <th>VENDOR</th>
+              <th>HOST</th>
+              <th>LAST SEEN</th>
+            </tr>
           </thead>
           <tbody id="devicesBody"></tbody>
         </table>
@@ -47,12 +57,38 @@
 
     <section class="card half">
       <h2>&gt; DEVICE TYPES</h2>
-      <div class="chartbox"><canvas id="donut"></canvas></div>
+      <div class="chartbox">
+        <canvas id="donut"></canvas>
+      </div>
     </section>
+
     <section class="card half">
       <h2>&gt; DEVICES PER SCAN</h2>
-      <div class="chartbox"><canvas id="line"></canvas></div>
+      <div class="chartbox">
+        <canvas id="line"></canvas>
+      </div>
     </section>
+
+    <!-- GET STARTED GUIDE -->
+    <section class="card wide">
+      <h2>&gt; GET STARTED (2 MINUTES)</h2>
+      <ol class="steps">
+        <li>Install <b>Npcap</b> from <a href="https://npcap.com" target="_blank">npcap.com</a> (keep the default options).</li>
+
+        <li>Download the agent (Windows):
+          <a class="btn" href="https://github.com/ghofranghadhghadhi-cloud/cyber_watch/releases/latest/download/cyber_watch_agent.exe">DOWNLOAD cyber_watch_agent.exe</a>
+        </li>
+
+        <li>Click <b>GENERATE MY AGENT TOKEN</b> below and copy the token.</li>
+
+        <li>Double-click the downloaded file, accept the administrator prompt, paste the token, and type <b>y</b>.</li>
+
+        <li>Your devices appear on this page within 10 seconds.</li>
+      </ol>
+
+      <p class="hint">Windows may show a "SmartScreen" or antivirus warning because the file is not signed: click "More info", then "Run anyway". The code is public on GitHub. Use it only on networks you own or have permission to test. Linux and Mac: use the Python version from the repository.</p>
+    </section>
+    <!-- END GET STARTED GUIDE -->
 
     <section class="card wide">
       <h2>&gt; AGENT</h2>
