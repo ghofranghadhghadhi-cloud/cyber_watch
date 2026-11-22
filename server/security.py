@@ -1,11 +1,19 @@
 import hashlib
+import os
 import secrets
 from datetime import datetime, timedelta, timezone
 
 import bcrypt
 import jwt
 
-SECRET_KEY = "change-this-secret-key-before-deploy"
+# The secret key comes from the environment, never from the code.
+SECRET_KEY = os.environ.get("SECRET_KEY")
+if SECRET_KEY is None:
+    # Local development only. On the server, SECRET_KEY is always set.
+    if os.environ.get("APP_ENV") == "production":
+        raise RuntimeError("SECRET_KEY must be set in production")
+    SECRET_KEY = "local-dev-key"
+
 ALGORITHM = "HS256"
 TOKEN_HOURS = 8
 
