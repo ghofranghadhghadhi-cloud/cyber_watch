@@ -4,3 +4,7 @@ __pycache__/
 *.db
 .env
 *.pcap
+build/
+dist/
+*.spec
+*.exe
