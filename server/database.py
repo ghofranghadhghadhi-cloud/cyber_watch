@@ -1,6 +1,8 @@
+import os
 import sqlite3
 
-DB_NAME = "cyber_watch.db"
+# The database path can be changed with an environment variable
+DB_NAME = os.environ.get("DB_PATH", "cyber_watch.db")
 
 
 def get_connection():
